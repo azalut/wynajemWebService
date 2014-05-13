@@ -6,7 +6,7 @@ import java.io.Serializable;
 @Entity
 public class Tentant implements Serializable {
     @Id @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
+    private int tentantId;
     private String name;
     private String lastname;
     private String email;
@@ -17,7 +17,10 @@ public class Tentant implements Serializable {
      * */
     private String idCardNumber;
     @OneToOne
+    @JoinColumn(name = "rent_id")
     private Rent rentId;
+
+    public Tentant(){}
 
     public Tentant(String name, String lastname, String email, String address, String telnumber, String idCardNumber, Rent rentId) {
         this.name = name;
@@ -29,8 +32,8 @@ public class Tentant implements Serializable {
         this.rentId = rentId;
     }
 
-    public int getId() {
-        return id;
+    public int getTentantId() {
+        return tentantId;
     }
 
     public String getName() {

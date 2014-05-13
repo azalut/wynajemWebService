@@ -12,9 +12,6 @@ public class RoomService {
 
     public RoomService() {
         roomsList = new ArrayList<Room>();
-        roomsList.add(new Room(1, 20, 2));
-        roomsList.add(new Room(2, 30, 3));
-        roomsList.add(new Room(2, 25, 1));
     }
 
     public List<Room> getRoomsList(){

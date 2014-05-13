@@ -9,7 +9,7 @@ import java.io.Serializable;
 @Entity
 public class Room implements Serializable {
     @Id @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
+    private int roomId;
     /**
      * size in quadrat meters
      * */
@@ -19,6 +19,8 @@ public class Room implements Serializable {
     private boolean hasWardrobe;
     private boolean hasPrivateBathroom;
 
+    public Room(){}
+
     public Room(int size, int beds, boolean hasTv, boolean hasWardrobe, boolean hasPrivateBathroom) {
         this.size = size;
         this.beds = beds;
@@ -27,8 +29,8 @@ public class Room implements Serializable {
         this.hasPrivateBathroom = hasPrivateBathroom;
     }
 
-    public int getId() {
-        return id;
+    public int getRoomId() {
+        return roomId;
     }
 
     public boolean isHasTv() {
