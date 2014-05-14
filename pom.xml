@@ -13,11 +13,11 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <spring.version>4.0.3.RELEASE</spring.version>
+    <spring.version>4.0.4.RELEASE</spring.version>
     </properties>
 
   <dependencies>
-        <!-- Spring 4.0.4 dependencies -->
+        <!-- Spring 4.0.3 dependencies -->
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-core</artifactId>
@@ -48,7 +48,9 @@
             <version>${spring.version}</version>
         </dependency>
 
-<!--JACKSON JSON DEPENDENCIES-->
+
+
+      <!--JACKSON JSON DEPENDENCIES-->
       <dependency>
           <groupId>org.codehaus.jackson</groupId>
           <artifactId>jackson-mapper-asl</artifactId>
@@ -106,7 +108,11 @@
           <version>1.4</version>
       </dependency>
 
-
+      <dependency>
+          <groupId>commons-pool</groupId>
+          <artifactId>commons-pool</artifactId>
+          <version>1.6</version>
+      </dependency>
 
   </dependencies>
 </project>

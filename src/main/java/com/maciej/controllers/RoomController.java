@@ -15,14 +15,14 @@ import java.util.Iterator;
 import java.util.List;
 
 @Controller
-public class RoomsController {
+public class RoomController {
     @Autowired
     private RoomService roomService;
 
-    @RequestMapping(value = "/rooms", method = RequestMethod.GET)
+    @RequestMapping(value = "/room", method = RequestMethod.GET)
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
-    public List<Room> getRoomsList(){
-        return roomService.getRoomsList();
+    public Room getExRoom(){
+        return new Room(1,2,true,true,true);
     }
 }

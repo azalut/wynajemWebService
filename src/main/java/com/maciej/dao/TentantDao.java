@@ -9,5 +9,5 @@ public interface TentantDao {
     public boolean createTentant(Tentant tentant);
     public boolean updateTentantById(int id, Tentant tentant);
     public boolean deleteTentantById(int id);
-    public List<Tentant> getTentantList();
+    public List<Tentant> readTentantList();
 }

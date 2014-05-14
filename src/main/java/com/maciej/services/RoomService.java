@@ -1,6 +1,8 @@
 package com.maciej.services;
 
+import com.maciej.dao.HibernateRoomDao;
 import com.maciej.dto.Room;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -8,13 +10,15 @@ import java.util.List;
 
 @Service
 public class RoomService {
-    private List<Room> roomsList;
+    @Autowired
+    private HibernateRoomDao hibernateRoomDao;
 
-    public RoomService() {
-        roomsList = new ArrayList<Room>();
+    public RoomService() {}
+
+    public Room getExRoom(){
+        hibernateRoomDao.createRoom(new Room(10, 2, true, true ,true));
+        return hibernateRoomDao.readRoomById(1);
     }
 
-    public List<Room> getRoomsList(){
-        return roomsList;
-    }
+
 }
