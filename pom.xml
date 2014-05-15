@@ -17,7 +17,7 @@
     </properties>
 
   <dependencies>
-        <!-- Spring 4.0.3 dependencies -->
+        <!-- Spring 4.0.4 dependencies -->
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-core</artifactId>
@@ -47,6 +47,12 @@
             <artifactId>spring-context</artifactId>
             <version>${spring.version}</version>
         </dependency>
+
+      <dependency>
+          <groupId>org.springframework</groupId>  <!-- have to be imported because of spring and hibernate integration -->
+          <artifactId>spring-tx</artifactId>
+          <version>${spring.version}</version>
+      </dependency>
 
 
 
