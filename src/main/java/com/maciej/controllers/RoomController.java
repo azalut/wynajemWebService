@@ -23,6 +23,6 @@ public class RoomController {
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
     public Room getExRoom(){
-        return new Room(1,2,true,true,true);
+        return roomService.getExRoom();
     }
 }

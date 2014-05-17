@@ -28,7 +28,7 @@ public class HibernateRoomDao implements RoomDao {
 
         session.getTransaction().commit();
         session.close();
-        return null;
+        return room;
     }
 
     @Override

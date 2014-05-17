@@ -5,35 +5,9 @@
 <hibernate-configuration>
 
     <session-factory>
-        <!-- Database connection settings -->
-        <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
-        <property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/test</property>
-        <property name="hibernate.connection.username">root</property>
-        <property name="hibernate.connection.password">maciek</property>
-
-        <!-- JDBC connection pool (use the built-in) -->
-        <property name="hibernate.connection.pool_size">1</property>
-
-        <!-- SQL dialect -->
-        <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQL9Dialect</property>
-
-        <!-- Enable Hibernate's automatic session context management -->
-        <!--<property name="hibernate.current_session_context_class">thread</property>-->
-
-        <!-- Disable the second-level cache -->
-        <!-- <property name="hibernate.cache.provider_class">org.hibernate.cache.NoCacheProvider</property>   -->
-
-        <!-- Echo all executed SQL to stdout -->
-        <property name="hibernate.show_sql">true</property>
-
-        <!-- Drop and re-create the database schema on startup -->
-        <property name="hibernate.hbm2ddl.auto">create</property>
-
-        <!--Mapping my own entities-->        <!--<mapping class=""/>-->
         <mapping class="com.maciej.dto.Room"/>
         <mapping class="com.maciej.dto.Rent"/>
         <mapping class="com.maciej.dto.Tentant"/>
-
     </session-factory>
 
 </hibernate-configuration>

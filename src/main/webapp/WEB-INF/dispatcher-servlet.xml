@@ -27,15 +27,18 @@
         <property name="username" value="postgres"/>
         <property name="password" value="maciek"/>
     </bean>-->
+
     <bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
         <property name="dataSource" ref="myDataSource"/>
-        <property name="mappingResources">
-            <list>
-                <value>hibernate.cfg.xml</value>
-            </list>
+        <property name="configLocations">
+            <value>classpath:hibernate.cfg.xml</value>
         </property>
         <property name="hibernateProperties">
-            <value>hibernate.dialect = org.hibernate.dialect.PostgreSQL9Dialect</value>
+            <props>
+                <prop key="hibernate.hbm2ddl.auto">create</prop>
+                <prop key="hibernate.dialect">org.hibernate.dialect.PostgreSQL9Dialect</prop>
+                <prop key="hibernate.show_sql">true</prop>
+            </props>
         </property>
     </bean>
 </beans>

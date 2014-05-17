@@ -16,8 +16,7 @@ public class RoomService {
     public RoomService() {}
 
     public Room getExRoom(){
-        hibernateRoomDao.createRoom(new Room(10, 2, true, true ,true));
-        return hibernateRoomDao.readRoomById(1);
+        return hibernateRoomDao.createRoom(new Room(10, 2, true, true ,true));
     }
 
 
