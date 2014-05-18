@@ -13,23 +13,23 @@ public class Tentant implements Serializable {
     private String address;
     private String telnumber;
     /**
-     * Number of identity card of tentant
+     * Tentant's identity card number
      * */
     private String idCardNumber;
-    @OneToOne
-    @JoinColumn(name = "rent_id")
-    private Rent rentId;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "rent")
+    private Rent rent;
 
     public Tentant(){}
 
-    public Tentant(String name, String lastname, String email, String address, String telnumber, String idCardNumber, Rent rentId) {
+    public Tentant(String name, String lastname, String email, String address, String telnumber, String idCardNumber, Rent rent) {
         this.name = name;
         this.lastname = lastname;
         this.email = email;
         this.address = address;
         this.telnumber = telnumber;
         this.idCardNumber = idCardNumber;
-        this.rentId = rentId;
+        this.rent = rent;
     }
 
     public int getTentantId() {
@@ -84,11 +84,11 @@ public class Tentant implements Serializable {
         this.idCardNumber = idCardNumber;
     }
 
-    public Rent getRentId() {
-        return rentId;
+    public Rent getRent() {
+        return rent;
     }
 
-    public void setRentId(Rent rentId) {
-        this.rentId = rentId;
+    public void setRent(Rent rent) {
+        this.rent = rent;
     }
 }

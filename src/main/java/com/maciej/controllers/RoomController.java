@@ -1,28 +1,52 @@
 package com.maciej.controllers;
 
+import com.maciej.dao.impl.HibernateRoomDao;
 import com.maciej.dto.Room;
-import com.maciej.services.RoomService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.bind.annotation.*;
 
-import java.util.Iterator;
 import java.util.List;
 
 @Controller
 public class RoomController {
     @Autowired
-    private RoomService roomService;
+    private HibernateRoomDao hibernateRoomDao;
 
-    @RequestMapping(value = "/room", method = RequestMethod.GET)
-    @ResponseStatus(HttpStatus.OK)
+    @RequestMapping(value = "/list", method = RequestMethod.GET)
     @ResponseBody
-    public Room getExRoom(){
-        return roomService.getExRoom();
+    public List<Room> lista(){
+        return hibernateRoomDao.findAll();
+    }
+
+    @RequestMapping(value = "/add", method = RequestMethod.POST)
+    @ResponseBody
+    public Room dodaj(@RequestBody Room room){
+        return hibernateRoomDao.create(room);
+    }
+
+    @RequestMapping(value = "/find/{roomId}", method = RequestMethod.GET)
+    @ResponseBody
+    public Room znajdz(@PathVariable int roomId){
+        return hibernateRoomDao.find(roomId);
+    }
+
+    @RequestMapping(value = "/update", method = RequestMethod.PUT)
+    @ResponseBody
+    public Room edytuj(@RequestBody Room room){
+        return hibernateRoomDao.update(room);
+    }
+
+    @RequestMapping(value = "/delete/{roomId}", method = RequestMethod.DELETE)
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void usun(@PathVariable int roomId){
+        hibernateRoomDao.delete(roomId);
+    }
+
+    @RequestMapping("/roll")
+    @ResponseBody
+    public Room roll(){
+        return hibernateRoomDao.create(new Room(1,1,true,true,false));
     }
 }

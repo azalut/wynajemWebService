@@ -1,13 +1,14 @@
 package com.maciej.dto;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Date;
 
 @Entity
-public class Rent {
+public class Rent implements Serializable {
     @Id @GeneratedValue(strategy = GenerationType.AUTO)
     private int rentId;
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "room_id")
     private Room room;
     private Date checkinDate;
