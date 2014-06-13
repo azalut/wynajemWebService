@@ -32,7 +32,7 @@ public class HibernateRoomDao implements RoomDao {
     public Room create(Room room) {
         session = sessionFactory.openSession();
         session.beginTransaction();
-        session.persist(room);
+        session.save(room);
         session.getTransaction().commit();
         session.close();
         return room;
